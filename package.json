@@ -1,0 +1,17 @@
+{
+  "name": "proxy-docs",
+  "version": "0.0.0",
+  "description": "my cool project",
+  "repository": {
+    "url": "zcong1993/proxy-docs",
+    "type": "git"
+  },
+  "scripts": {
+    "test": "echo no test!"
+  },
+  "author": "zcong1993 <1005997919@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^0.8.4"
+  }
+}
