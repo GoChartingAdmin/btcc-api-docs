@@ -10,11 +10,18 @@
     "test": "echo no test!",
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "serve:gen": "yarn build && netlify deploy -p docs/.vuepress/dist"
+    "serve:gen": "yarn build && netlify deploy -p docs/.vuepress/dist",
+    "example": "parcel example/index.html",
+    "example:build": "parcel build example/index.html"
   },
   "author": "zcong1993 <1005997919@qq.com>",
   "license": "MIT",
   "devDependencies": {
     "vuepress": "^0.8.4"
+  },
+  "dependencies": {
+    "create-hmac": "^1.1.7",
+    "parcel": "^1.8.1",
+    "qs": "^6.5.2"
   }
 }
