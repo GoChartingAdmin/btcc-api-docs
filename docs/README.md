@@ -24,7 +24,7 @@
   * [GetAllOrders](#getallorders)
   * [CancelOrder](#cancelorder)
   * [CancelAllOrders](#cancelallorders)
-  * [RetrieveOrder](#retrieveorder)
+  * [RetrieveOrder (deprecated)](#retrieveorder-deprecated)
   * [GetAccountInfo](#getaccountinfo)
 
 * [ERROR RC CODE](#error-rc-code)
@@ -47,6 +47,10 @@
 }
 ```
 
+#### Response
+
+[GetActiveContractsResponse](./engine.md#getactivecontractsresponse)
+
 ### GetTrades
 
 查询特定交易对历史成交记录
@@ -63,6 +67,10 @@
   "count": 50
 }
 ```
+
+#### Response
+
+[GetTradesResponse](./engine.md#gettradesresponse)
 
 ### SubscribeAllTickers
 
@@ -109,6 +117,10 @@
   "symbol": "BTC_USD"
 }
 ```
+
+#### Response
+
+会持续推送该交易对的[2.2 Ticker](./engine.md#22-ticker) 和 [2.3 OrderBook](./engine.md#23-orderbook) 的消息
 
 ### UnSubscribe
 
@@ -170,6 +182,12 @@ common 为每种请求均必须附带的字段
 
 仅需要 `common` 字段
 
+#### Response
+
+[LoginResponse](./engine.md#loginresponse)
+
+并会在账户订单状态变动时推送 [ExecReport](./engine.md#execreport), 在账户资产变动时推送 [AccountInfo](./engine.md#accountinfo)
+
 ### Logout
 
 取消订阅自身帐号相关消息推送, 与别的 action 无关
@@ -177,6 +195,10 @@ common 为每种请求均必须附带的字段
 #### params
 
 仅需要 `common` 字段
+
+#### Response
+
+[LogoutResponse](./engine.md#logoutresponse)
 
 ### PlaceOrder
 
@@ -193,6 +215,10 @@ common 为每种请求均必须附带的字段
 |   price    |   YES    |             number              |                            价格, `>0`                            |
 |  quantity  |   YES    |             number              | 订单交易量, `>0`(具体根据 GetActiveContracts 获取不同交易对配置) |
 
+#### Response
+
+[PlaceOrderResponse](./engine.md#placeorderresponse)
+
 ### GetOpenOrders
 
 获取自己当前正在进行的订单, `symbol` 为 `null` 为查询所有交易对记录
@@ -204,6 +230,10 @@ common 为每种请求均必须附带的字段
 |  symbol   |    NO    |  string   |       交易对, eg: 'BTC_USD'        |
 |   begin   |    NO    | timestamp |     查询开始时间戳, 默认值`0`      |
 |    end    |    NO    | timestamp | 查询结束时间戳, 默认值`Date.now()` |
+
+#### Response
+
+[GetOrdersResponse](./engine.md#getordersresponse)
 
 ### GetClosedOrders
 
@@ -217,6 +247,10 @@ common 为每种请求均必须附带的字段
 |   begin   |    NO    | timestamp |     查询开始时间戳, 默认值`0`      |
 |    end    |    NO    | timestamp | 查询结束时间戳, 默认值`Date.now()` |
 
+#### Response
+
+[GetOrdersResponse](./engine.md#getordersresponse)
+
 ### GetAllOrders
 
 获取自己所有订单(暂时不需要启用), `symbol` 为 `null` 为查询所有交易对记录
@@ -229,6 +263,10 @@ common 为每种请求均必须附带的字段
 |   begin   |    NO    | timestamp |     查询开始时间戳, 默认值`0`      |
 |    end    |    NO    | timestamp | 查询结束时间戳, 默认值`Date.now()` |
 
+#### Response
+
+[GetOrdersResponse](./engine.md#getordersresponse)
+
 ### CancelOrder
 
 取消订单
@@ -239,6 +277,10 @@ common 为每种请求均必须附带的字段
 | :-------: | :------: | :----: | :-------------------: |
 |  symbol   |   YES    | string | 交易对, eg: 'BTC_USD' |
 | order_id  |   YES    | string |     订单号, `OID`     |
+
+#### Response
+
+[Cancel replace order response](./engine.md#cancel-replace-order-response)
 
 ### CancelAllOrders
 
@@ -252,6 +294,10 @@ common 为每种请求均必须附带的字段
 |    side    |   YES    | enum('SELL', 'BUY', 'ALL') |                买或者卖                 |
 | high_price |    NO    |           number           | 取消价格范围, 最高价格, 默认值 `100000` |
 | low_price  |    NO    |           number           |   取消价格范围, 最低价格, 默认值 `0`    |
+
+#### Response
+
+[CancelAllOrdersResponse](./engine.md#cancelallordersresponse)
 
 ### RetrieveOrder (deprecated)
 
@@ -271,6 +317,10 @@ common 为每种请求均必须附带的字段
 #### params
 
 仅需要 `common` 字段
+
+#### Response
+
+[GetAccountInfoResponse](./engine.md#getaccountinforesponse)
 
 ## ERROR RC CODE
 

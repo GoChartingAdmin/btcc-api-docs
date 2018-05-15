@@ -30,6 +30,6 @@ module.exports = {
     repo: 'zcong1993/btcc-api-docs',
     editLinks: true,
     docsDir: 'docs',
-    sidebar: ['/', '/sign']
+    sidebar: ['/', '/sign', '/engine']
   }
 }
