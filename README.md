@@ -8,7 +8,8 @@
 
 ## Example
 
-[example](./example/index.js)
+* [javascript](./examples/js/index.js)
+* [python3](./examples/python3/ws.py)
 
 ## License
 

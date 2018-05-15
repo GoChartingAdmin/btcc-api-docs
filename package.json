@@ -11,8 +11,8 @@
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
     "serve:gen": "yarn build && netlify deploy -p docs/.vuepress/dist",
-    "example": "parcel example/index.html",
-    "example:build": "parcel build example/index.html"
+    "example": "parcel examples/js/index.html",
+    "example:build": "parcel build examples/js/index.html"
   },
   "author": "zcong1993 <1005997919@qq.com>",
   "license": "MIT",

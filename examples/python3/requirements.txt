@@ -1,0 +1,2 @@
+simplejson==3.15.0
+websockets==4.0.1

@@ -12,54 +12,44 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 
   * [1. Get active contracts](#1-get-active-contracts)
 
-    * [GetActiveContractsRequest](#getactivecontractsrequest)
     * [GetActiveContractsResponse](#getactivecontractsresponse)
 
   * [2. Quote](#2-quote)
 
-    * [QuoteRequest](#quoterequest)
     * [QuoteResponse](#quoteresponse)
 
   * [3. Login: AccountInfo, ExecReport](#3-login-accountinfo-execreport)
 
-    * [LoginRequest](#loginrequest)
     * [LoginResponse](#loginresponse)
     * [AccountInfo](#accountinfo)
     * [ExecReport](#execreport)
 
   * [4. Logout](#4-logout)
 
-    * [LogoutRequest](#logoutrequest)
     * [LogoutResponse](#logoutresponse)
 
   * [5. Place order](#5-place-order)
 
-    * [PlaceOrderRequest](#placeorderrequest)
     * [PlaceOrderResponse](#placeorderresponse)
 
   * [6. Cancel all orders](#6-cancel-all-orders)
 
-    * [CancelAllOrdersRequest](#cancelallordersrequest)
     * [CancelAllOrdersResponse](#cancelallordersresponse)
 
   * [7. Cancel replace order](#7-cancel-replace-order)
 
-    * [CancelReplaceOrderRequest](#cancelreplaceorderrequest)
     * [Cancel replace order response](#cancel-replace-order-response)
 
   * [8. Get account info](#8-get-account-info)
 
-    * [GetAccountInfoRequest](#getaccountinforequest)
     * [GetAccountInfoResponse](#getaccountinforesponse)
 
   * [9. Get orders](#9-get-orders)
 
-    * [GetOrdersRequest](#getordersrequest)
     * [GetOrdersResponse](#getordersresponse)
 
   * [10. Get trades](#10-get-trades)
 
-    * [GetTradesRequest](#gettradesrequest)
     * [GetTradesResponse](#gettradesresponse)
 
   * [Appendix 0: Result Codes](#appendix-0-result-codes)
@@ -92,13 +82,6 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 
 ### 1. Get active contracts
 
-#### GetActiveContractsRequest
-
-| Field   | Value/Explanation                                           |
-| ------- | ----------------------------------------------------------- |
-| MsgType | GetActiveContractsRequest                                   |
-| CRID    | an unique ID from client to identify requests and responses |
-
 #### GetActiveContractsResponse
 
 | Field     | Value/Explanation                                                          |
@@ -110,15 +93,6 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 | Contracts | object contains information of currently trading symbols, see Appendix 2.2 |
 
 ### 2. Quote
-
-#### QuoteRequest
-
-| Field     | Value/Explanation                                              |
-| --------- | -------------------------------------------------------------- |
-| MsgType   | QuoteRequest                                                   |
-| CRID      | an unique ID from client to identify requests and responses    |
-| QuoteType | 1 for single request, 2 for subscription on incremental change |
-| Symbol    | contract symbol, e.g. BTCUSD                                   |
 
 #### QuoteResponse
 
@@ -133,16 +107,6 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 | PremiumAdjustment | object holding information about price PremiumAdjustment, see Appendix 2.5 |
 
 ### 3. Login: AccountInfo, ExecReport
-
-#### LoginRequest
-
-| Field   | Value/Explanation                                           |
-| ------- | ----------------------------------------------------------- |
-| MsgType | LoginRequest                                                |
-| CRID    | an unique ID from client to identify requests and responses |
-| Date    | date string following YYYYMMDD e.g. 20170101                |
-| Account | account ID / account access key (proxy)                     |
-| SIG     | signature                                                   |
 
 #### LoginResponse
 
@@ -200,16 +164,6 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 
 ### 4. Logout
 
-#### LogoutRequest
-
-| Field   | Value/Explanation                                           |
-| ------- | ----------------------------------------------------------- |
-| MsgType | LogoutRequest                                               |
-| CRID    | an unique ID from client to identify requests and responses |
-| Date    | date string following YYYYMMDD e.g. 20170101                |
-| Account | account ID / account access key (proxy)                     |
-| SIG     | signature                                                   |
-
 #### LogoutResponse
 
 | Field   | Value/Explanation                                           |
@@ -221,25 +175,6 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 | Account | account ID                                                  |
 
 ### 5. Place order
-
-#### PlaceOrderRequest
-
-| Field     | Value/Explanation                                           |
-| --------- | ----------------------------------------------------------- |
-| MsgType   | PlaceOrderRequest                                           |
-| CRID      | an unique ID from client to identify requests and responses |
-| Date      | date string following YYYYMMDD e.g. 20170101                |
-| Account   | account ID / account access key (proxy)                     |
-| SIG       | signature                                                   |
-| Symbol    | contract symbol, e.g. BTCUSD                                |
-| Side      | 1 is buy, 2 is sell                                         |
-| OrderType | 1 is market, 2 is limit, 3 is stop and Z is OCO             |
-| Quantity  | order quantity                                              |
-| Price     | price of order                                              |
-| StopPrice | stop order price                                            |
-| TIF       | 0 for current day and 1 for good till cancel (GTC)          |
-| ExprDate  | "0"                                                         |
-| ExprTime  | "00:00:00"                                                  |
 
 #### PlaceOrderResponse
 
@@ -255,20 +190,6 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 
 ### 6. Cancel all orders
 
-#### CancelAllOrdersRequest
-
-| Field     | Value/Explanation                                           |
-| --------- | ----------------------------------------------------------- |
-| MsgType   | CancelAllOrdersRequest                                      |
-| CRID      | an unique ID from client to identify requests and responses |
-| Date      | date string following YYYYMMDD e.g. 20170101                |
-| Account   | account ID / account access key (proxy)                     |
-| SIG       | signature                                                   |
-| Symbol    | contract symbol, e.g. BTCUSD                                |
-| Side      | 1 is buy, 2 is sell                                         |
-| HighPrice | maximum price of orders                                     |
-| LowPrice  | lowest price of orders                                      |
-
 #### CancelAllOrdersResponse
 
 | Field             | Value/Explanation                                           |
@@ -280,22 +201,6 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 | CancelledOrdersId | list of cancelled order IDs                                 |
 
 ### 7. Cancel replace order
-
-#### CancelReplaceOrderRequest
-
-| Field       | Value/Explanation                                           |
-| ----------- | ----------------------------------------------------------- |
-| MsgType     | CancelReplaceOrderRequest                                   |
-| CRID        | an unique ID from client to identify requests and responses |
-| Date        | date string following YYYYMMDD e.g. 20170101                |
-| Account     | account ID / account access key (proxy)                     |
-| SIG         | signature                                                   |
-| Symbol      | contract symbol, e.g. BTCUSD                                |
-| OID         | order ID of previous order                                  |
-| Quantity    | new quantity                                                |
-| Price       | new price                                                   |
-| StopPrice   | stop price                                                  |
-| OldQuantity | order quantity from previous order                          |
 
 #### Cancel replace order response
 
@@ -311,16 +216,6 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 
 ### 8. Get account info
 
-#### GetAccountInfoRequest
-
-| Field   | Value/Explanation                                           |
-| ------- | ----------------------------------------------------------- |
-| MsgType | GetAccountInfoRequest                                       |
-| CRID    | an unique ID from client to identify requests and responses |
-| Date    | date string following YYYYMMDD e.g. 20170101                |
-| Account | account ID / account access key (proxy)                     |
-| SIG     | signature                                                   |
-
 #### GetAccountInfoResponse
 
 | Field       | Value/Explanation                                           |
@@ -332,20 +227,6 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 | AccountInfo | object contains account information                         |
 
 ### 9. Get orders
-
-#### GetOrdersRequest
-
-| Field   | Value/Explanation                                           |
-| ------- | ----------------------------------------------------------- |
-| MsgType | GetOrdersRequest                                            |
-| CRID    | an unique ID from client to identify requests and responses |
-| Date    | date string following YYYYMMDD e.g. 20170101                |
-| Account | account ID / account access key (proxy)                     |
-| SIG     | signature                                                   |
-| Symbol  | contract symbol, e.g. BTCUSD                                |
-| Begin   | timestamp                                                   |
-| End     | timestamp                                                   |
-| Status  | "3,S" for closed orders, "A,0,1,2" for open orders          |
 
 #### GetOrdersResponse
 
@@ -359,16 +240,6 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 | OrdRejReason | order reject reason                                                   |
 
 ### 10. Get trades
-
-#### GetTradesRequest
-
-| Field   | Value/Explanation                                           |
-| ------- | ----------------------------------------------------------- |
-| MsgType | GetTradesRequest                                            |
-| CRID    | an unique ID from client to identify requests and responses |
-| SIG     | signature                                                   |
-| Symbol  | contract symbol, e.g. BTCUSD                                |
-| Count   | a number specifying how many records you want               |
 
 #### GetTradesResponse
 
