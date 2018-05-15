@@ -30,6 +30,23 @@ module.exports = {
     repo: 'zcong1993/btcc-api-docs',
     editLinks: true,
     docsDir: 'docs',
-    sidebar: ['/', '/sign', '/engine']
+    sidebar: ['/', '/sign', '/engine'],
+    nav: [
+      {
+        text: 'Examples',
+        items: [
+          {
+            text: 'Javascript',
+            link:
+              'https://github.com/zcong1993/btcc-api-docs/tree/master/examples/js'
+          },
+          {
+            text: 'Python3',
+            link:
+              'https://github.com/zcong1993/btcc-api-docs/tree/master/examples/python3'
+          }
+        ]
+      }
+    ]
   }
 }
