@@ -25,6 +25,7 @@
   * [GetClosedOrders](#getclosedorders)
   * [GetAllOrders](#getallorders)
   * [CancelOrder](#cancelorder)
+  * [CancelReplaceOrder](#cancelreplaceorder)
   * [CancelAllOrders](#cancelallorders)
   * [RetrieveOrder (deprecated)](#retrieveorder-deprecated)
   * [GetAccountInfo](#getaccountinfo)
@@ -177,7 +178,8 @@ common 为每种请求均必须附带的字段
       'CancelOrder',
       'CancelAllOrders',
       'RetrieveOrder',
-      'GetAccountInfo'
+      'GetAccountInfo',
+      'CancelReplaceOrder'
     ]
   }
 ```
@@ -288,7 +290,26 @@ common 为每种请求均必须附带的字段
 
 #### Response
 
-[Cancel replace order response](./engine.md#cancel-replace-order-response)
+[Cancel replace order response](./engine.md#cancelorderresponse)
+
+### CancelReplaceOrder
+
+更新未成交的订单信息
+
+#### params
+
+|  Parameter   | Required |  Type  |                           Explanation                            |
+| :----------: | :------: | :----: | :--------------------------------------------------------------: |
+|    symbol    |   YES    | string |                      交易对, eg: 'BTC_USD'                       |
+|   order_id   |   YES    | string |                          订单号, `OID`                           |
+|  stop_price  |    NO    | number |        止损价格, `>0`, order_type 为 `STOP` 时为必须字段         |
+|    price     |   YES    | number |                            价格, `>0`                            |
+|   quantity   |   YES    | number | 订单交易量, `>0`(具体根据 GetActiveContracts 获取不同交易对配置) |
+| old_quantity |   YES    | number |                          当前订单剩余量                          |
+
+#### Response
+
+[Cancel replace order response](./engine.md#cancelreplaceorderresponse)
 
 ### CancelAllOrders
 

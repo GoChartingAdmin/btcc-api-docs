@@ -36,9 +36,13 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 
     * [CancelAllOrdersResponse](#cancelallordersresponse)
 
-  * [7. Cancel replace order](#7-cancel-replace-order)
+  * [7. Cancel order](#7-cancel-order)
 
-    * [Cancel replace order response](#cancel-replace-order-response)
+    * [CancelOrderResponse](#cancelorderresponse)
+
+  * [8. Cancel replace order](#8-cancel-replace-order)
+
+    * [CancelReplaceOrderResponse](#cancelreplaceorderresponse)
 
   * [8. Get account info](#8-get-account-info)
 
@@ -200,9 +204,23 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 | Reason            | result information                                          |
 | CancelledOrdersId | list of cancelled order IDs                                 |
 
-### 7. Cancel replace order
+### 7. Cancel order
 
-#### Cancel replace order response
+#### CancelOrderResponse
+
+| Field        | Value/Explanation                                           |
+| ------------ | ----------------------------------------------------------- |
+| MsgType      | CancelOrderResponse                                         |
+| CRID         | an unique ID from client to identify requests and responses |
+| RC           | 0 means success, non-zero indicates failure                 |
+| Reason       | result information                                          |
+| OID          | order Id                                                    |
+| OrdStatus    | order status                                                |
+| CxlRejReason | cancel reject reason                                        |
+
+### 8. Cancel replace order
+
+#### CancelReplaceOrderResponse
 
 | Field        | Value/Explanation                                           |
 | ------------ | ----------------------------------------------------------- |
