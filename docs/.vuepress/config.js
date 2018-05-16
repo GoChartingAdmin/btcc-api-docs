@@ -30,6 +30,7 @@ module.exports = {
     repo: 'zcong1993/btcc-api-docs',
     editLinks: true,
     docsDir: 'docs',
+    lastUpdated: 'Last Updated',
     sidebar: ['/', '/sign', '/engine'],
     nav: [
       {
