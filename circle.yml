@@ -28,6 +28,6 @@ jobs:
       - run:
           name: deploy
           command: |
-            npm install -g netlify-cli
-            netlify deploy -p docs/.vuepress/dist -s 58553bab-458d-46f9-acda-3ab9740b17d8 -t $NETLIFY_TOKEN
+            yarn add netlify-cli
+            ./node_modules/.bin/netlify deploy -t $NETLIFY_TOKEN
       - *save_cache
