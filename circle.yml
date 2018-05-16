@@ -1,3 +1,9 @@
+save_cache: &save_cache
+  save_cache:
+    paths:
+      - node_modules
+    key: v1-dependencies-{{ checksum "yarn.lock" }}
+
 version: 2
 jobs:
   build:
@@ -14,15 +20,14 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
           name: install dependences
-          command: yarn && yarn global add netlify-cli
-      - save_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
-          paths:
-            - ./node_modules
+          command: yarn
+      - *save_cache
       - run:
           name: build
           command: yarn build
       - run:
           name: deploy
           command: |
+            npm install -g netlify-cli
             netlify deploy -t $NETLIFY_TOKEN
+      - *save_cache
