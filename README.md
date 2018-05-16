@@ -1,4 +1,4 @@
-# proxy-docs
+# proxy-docs [![CircleCI](https://img.shields.io/circleci/project/github/zcong1993/btcc-api-docs.svg?style=flat-square)](https://circleci.com/gh/zcong1993/btcc-api-docs)
 
 > btcc proxy docs
 
