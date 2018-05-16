@@ -112,7 +112,7 @@
 
 ### Subscribe
 
-订阅特定频道的 `ticker` 和 `orderbook`
+订阅特定交易对的 `ticker` 和 `orderbook`
 
 #### params
 
@@ -133,7 +133,7 @@
 
 ### UnSubscribe
 
-取消订阅特定频道的 `ticker` 和 `orderbook`
+取消订阅特定交易对的 `ticker` 和 `orderbook`
 
 #### params
 
