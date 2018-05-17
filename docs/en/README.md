@@ -1,4 +1,4 @@
-# Api
+# API
 
 ## Table of Contents
 
@@ -6,7 +6,7 @@
 
 * [Common](#common)
 
-* [PUBLIC 消息](#public-消息)
+* [PUBLIC MESSAGE](#public-message)
 
   * [GetActiveContracts](#getactivecontracts)
   * [GetTrades](#gettrades)
@@ -15,7 +15,7 @@
   * [Subscribe](#subscribe)
   * [UnSubscribe](#unsubscribe)
 
-* [PRIVATE 消息](#private-消息)
+* [PRIVATE MESSAGE](#private-message)
 
   * [common](#common-1)
   * [Login](#login)
@@ -40,15 +40,15 @@
 
 ## Common
 
-所有请求均可加 `crid` 字段, 若主动附带此字段, 则返回值中 `CRID` 会与此保持一致, 若忽略该字段, 则为随机 `uuid`
+You can add `crid` field for all requests. If you add this field, it will be returned in `CRID` value. If you do not add this field, then it is a random `uuid`.
 
-## PUBLIC 消息
+## PUBLIC MESSAGE
 
-不需要签名和任何 `common` 字段
+No signature and `common` fields
 
 ### GetActiveContracts
 
-获取当前所有开放的交易对信息, 仅需要 `action` 字段
+get all of the current trading pairs information by using `action` field
 
 ```json
 {
@@ -62,12 +62,12 @@
 
 ### GetTrades
 
-查询特定交易对历史成交记录
+Search the specific trading pair’s transaction history
 
-| Parameter | Required |  Type  |      Explanation      |
-| :-------: | :------: | :----: | :-------------------: |
-|  symbol   |   YES    | string | 交易对, eg: 'BTC_USD' |
-|   count   |   YES    | number |  订单数量, 上限 100   |
+| Parameter | Required |  Type  |          Explanation          |
+| :-------: | :------: | :----: | :---------------------------: |
+|  symbol   |   YES    | string | trading pair (e.g. 'BTC_USD') |
+|   count   |   YES    | number |      quantity: 100 limit      |
 
 ```json
 {
@@ -83,7 +83,7 @@
 
 ### SubscribeAllTickers
 
-订阅所有交易对的 Tickers, 每秒推送所有 ticker 数组
+Subscribe all of the trading pairs’ tickers, push all of the ticker arrays every second
 
 ```json
 {
@@ -102,7 +102,7 @@
 
 ### UnSubscribeAllTickers
 
-取消订阅所有交易对的 Tickers
+Unsubscribe all of the trading pairs’ tickers
 
 ```json
 {
@@ -112,13 +112,13 @@
 
 ### Subscribe
 
-订阅特定交易对的 `ticker` 和 `orderbook`
+Subscribe a specific trading pair’s `ticker` and `orderbook`
 
 #### params
 
-| Parameter | Required |  Type  |      Explanation      |
-| :-------: | :------: | :----: | :-------------------: |
-|  symbol   |   YES    | string | 交易对, eg: 'BTC_USD' |
+| Parameter | Required |  Type  |          Explanation          |
+| :-------: | :------: | :----: | :---------------------------: |
+|  symbol   |   YES    | string | trading pair (e.g. 'BTC_USD') |
 
 ```json
 {
@@ -129,17 +129,17 @@
 
 #### Response
 
-会持续推送该交易对的[2.2 Ticker](./engine.md#22-ticker) 和 [2.3 OrderBook](./engine.md#23-orderbook) 的消息
+Push this trading pair’s [2.2 Ticker](./engine.md#22-ticker) and [2.3 OrderBook](./engine.md#23-orderbook) messages continuously
 
 ### UnSubscribe
 
-取消订阅特定交易对的 `ticker` 和 `orderbook`
+Unsubscribe a specific trading pair’s `ticker` and `orderbook`
 
 #### params
 
-| Parameter | Required |  Type  |      Explanation      |
-| :-------: | :------: | :----: | :-------------------: |
-|  symbol   |   YES    | string | 交易对, eg: 'BTC_USD' |
+| Parameter | Required |  Type  |          Explanation          |
+| :-------: | :------: | :----: | :---------------------------: |
+|  symbol   |   YES    | string | trading pair (e.g. 'BTC_USD') |
 
 ```json
 {
@@ -148,22 +148,22 @@
 }
 ```
 
-## PRIVATE 消息
+## PRIVATE MESSAGE
 
 ### common
 
-common 为每种请求均必须附带的字段
+Add common field for all kind of requests
 
 #### params
 
-| Parameter | Required |       Type       |                                    Explanation                                    |
-| :-------: | :------: | :--------------: | :-------------------------------------------------------------------------------: |
-| timestamp |   YES    |  timestamp(13)   |                   13 位时间戳, 服务端不会请求过期`2s`以上的请求                   |
-|   nonce   |   YES    | string 或 number |                                   8 位随机数字                                    |
-|  user_id  |   YES    |      string      |                                 用户 id, 非用户名                                 |
-|   sign    |   YES    |      string      |                          签名, 详见[sign.md](./sign.md)                           |
-|  action   |   YES    |      string      |                            消息类型, 支持的类型见下方                             |
-|   crid    |   YES    |      string      | 若主动附带此字段, 则返回值中 `CRID` 会与此保持一致, 若忽略该字段, 则为随机 `uuid` |
+| Parameter | Required |       Type       |                                                       Explanation                                                       |
+| :-------: | :------: | :--------------: | :---------------------------------------------------------------------------------------------------------------------: |
+| timestamp |   YES    |  timestamp (13)  |                        13-digit timestamp (Server will not request an expired request over `2s`)                        |
+|   nonce   |   YES    | string or number |                                                  8-digit random number                                                  |
+|  user_id  |   YES    |      string      |                                                 user ID (non-username)                                                  |
+|   sign    |   YES    |      string      |                     signature （please see the [sign.md](./sign.md) for the detailed information）                      |
+|  action   |   YES    |      string      |                                          message type（support type as below）                                          |
+|   crid    |   YES    |      string      | If you add `crid` field, it will be returned in `CRID` value. If you do not add this field, then it is a random `uuid`. |
 
 ```js
   action: {
@@ -186,25 +186,25 @@ common 为每种请求均必须附带的字段
 
 ### Login
 
-订阅自身帐号相关消息推送, 与别的 action 无关
+Subscribe push notification
 
 #### params
 
-仅需要 `common` 字段
+use `common` field
 
 #### Response
 
 [LoginResponse](./engine.md#loginresponse)
 
-并会在账户订单状态变动时推送 [ExecReport](./engine.md#execreport), 在账户资产变动时推送 [AccountInfo](./engine.md#accountinfo)
+Push [ExecReport](./engine.md#execreport) when order state change. Push [AccountInfo](./engine.md#accountinfo) when account assets change.
 
 ### Logout
 
-取消订阅自身帐号相关消息推送, 与别的 action 无关
+Unsubscribe push notification
 
 #### params
 
-仅需要 `common` 字段
+use `common` field
 
 #### Response
 
@@ -212,18 +212,18 @@ common 为每种请求均必须附带的字段
 
 ### PlaceOrder
 
-下单操作
+place orders
 
 #### params
 
-| Parameter  | Required |              Type               |                           Explanation                            |
-| :--------: | :------: | :-----------------------------: | :--------------------------------------------------------------: |
-|   symbol   |   YES    |             string              |                      交易对, eg: 'BTC_USD'                       |
-|    side    |   YES    |       enum('SELL', 'BUY')       |                             买或者卖                             |
-| order_type |   YES    | enum('LIMIT', 'MARKET', 'STOP') |                     订单类型, 市价单或限价单                     |
-| stop_price |    NO    |             number              |        止损价格, `>0`, order_type 为 `STOP` 时为必须字段         |
-|   price    |   YES    |             number              |                            价格, `>0`                            |
-|  quantity  |   YES    |             number              | 订单交易量, `>0`(具体根据 GetActiveContracts 获取不同交易对配置) |
+| Parameter  | Required |               Type               |                                          Explanation                                           |
+| :--------: | :------: | :------------------------------: | :--------------------------------------------------------------------------------------------: |
+|   symbol   |   YES    |              string              |                                 trading pair (e.g. 'BTC_USD')                                  |
+|    side    |   YES    |       enum ('SELL', 'BUY')       |                                          buy or sell                                           |
+| order_type |   YES    | enum ('LIMIT', 'MARKET', 'STOP') |                    order type: market order, limit order or stop-loss order                    |
+| stop_price |    NO    |              number              |       stop-loss price: `>0`, The required change to YES when order_type is `STOP` order        |
+|   price    |   YES    |              number              |                                          price: `>0`                                           |
+|  quantity  |   YES    |              number              | trading volume:`>0` (get different trading pair configuration according to GetActiveContracts) |
 
 #### Response
 
@@ -231,15 +231,15 @@ common 为每种请求均必须附带的字段
 
 ### GetOpenOrders
 
-获取自己当前正在进行的订单, `symbol` 为 `null` 为查询所有交易对记录
+Get open orders for specific trading pair, you can query all your trading pairs’ transaction history when `symbol`’s status is `null`
 
 #### params
 
-| Parameter | Required |   Type    |            Explanation             |
-| :-------: | :------: | :-------: | :--------------------------------: |
-|  symbol   |    NO    |  string   |       交易对, eg: 'BTC_USD'        |
-|   begin   |    NO    | timestamp |     查询开始时间戳, 默认值`0`      |
-|    end    |    NO    | timestamp | 查询结束时间戳, 默认值`Date.now()` |
+| Parameter | Required |   Type    |                   Explanation                   |
+| :-------: | :------: | :-------: | :---------------------------------------------: |
+|  symbol   |    NO    |  string   |          trading pair (e.g. 'BTC_USD')          |
+|   begin   |    NO    | timestamp |    query begin timestamp: default value `0`     |
+|    end    |    NO    | timestamp | query end timestamp: default value `Date.now()` |
 
 #### Response
 
@@ -247,15 +247,15 @@ common 为每种请求均必须附带的字段
 
 ### GetClosedOrders
 
-获取自己已关闭的订单(暂时不需要启用), `symbol` 为 `null` 为查询所有交易对记录
+Get closed orders for specific trading pair, you can query all your trading pairs’ transaction history when `symbol`’s status is `null`
 
 #### params
 
-| Parameter | Required |   Type    |            Explanation             |
-| :-------: | :------: | :-------: | :--------------------------------: |
-|  symbol   |    NO    |  string   |       交易对, eg: 'BTC_USD'        |
-|   begin   |    NO    | timestamp |     查询开始时间戳, 默认值`0`      |
-|    end    |    NO    | timestamp | 查询结束时间戳, 默认值`Date.now()` |
+| Parameter | Required |   Type    |                   Explanation                   |
+| :-------: | :------: | :-------: | :---------------------------------------------: |
+|  symbol   |    NO    |  string   |          trading pair (e.g. 'BTC_USD')          |
+|   begin   |    NO    | timestamp |    query begin timestamp: default value `0`     |
+|    end    |    NO    | timestamp | query end timestamp: default value `Date.now()` |
 
 #### Response
 
@@ -263,15 +263,15 @@ common 为每种请求均必须附带的字段
 
 ### GetAllOrders
 
-获取自己所有订单(暂时不需要启用), `symbol` 为 `null` 为查询所有交易对记录
+Get all ordersfor specific trading pair, you can query all your transaction history when `symbol` is `null`
 
 #### params
 
-| Parameter | Required |   Type    |            Explanation             |
-| :-------: | :------: | :-------: | :--------------------------------: |
-|  symbol   |   YES    |  string   |       交易对, eg: 'BTC_USD'        |
-|   begin   |    NO    | timestamp |     查询开始时间戳, 默认值`0`      |
-|    end    |    NO    | timestamp | 查询结束时间戳, 默认值`Date.now()` |
+| Parameter | Required |   Type    |                   Explanation                   |
+| :-------: | :------: | :-------: | :---------------------------------------------: |
+|  symbol   |   YES    |  string   |          trading pair (e.g. 'BTC_USD')          |
+|   begin   |    NO    | timestamp |    query begin timestamp: default value `0`     |
+|    end    |    NO    | timestamp | query end timestamp: default value `Date.now()` |
 
 #### Response
 
@@ -279,14 +279,14 @@ common 为每种请求均必须附带的字段
 
 ### CancelOrder
 
-取消订单
+cancel order
 
 #### params
 
-| Parameter | Required |  Type  |      Explanation      |
-| :-------: | :------: | :----: | :-------------------: |
-|  symbol   |   YES    | string | 交易对, eg: 'BTC_USD' |
-| order_id  |   YES    | string |     订单号, `OID`     |
+| Parameter | Required |  Type  |          Explanation          |
+| :-------: | :------: | :----: | :---------------------------: |
+|  symbol   |   YES    | string | trading pair (e.g. 'BTC_USD') |
+| order_id  |   YES    | string |        order ID: `OID`        |
 
 #### Response
 
@@ -294,18 +294,18 @@ common 为每种请求均必须附带的字段
 
 ### CancelReplaceOrder
 
-更新未成交的订单信息
+Update the information of pending orders
 
 #### params
 
-|  Parameter   | Required |  Type  |                           Explanation                            |
-| :----------: | :------: | :----: | :--------------------------------------------------------------: |
-|    symbol    |   YES    | string |                      交易对, eg: 'BTC_USD'                       |
-|   order_id   |   YES    | string |                          订单号, `OID`                           |
-|  stop_price  |    NO    | number |        止损价格, `>0`, order_type 为 `STOP` 时为必须字段         |
-|    price     |   YES    | number |                            价格, `>0`                            |
-|   quantity   |   YES    | number | 订单交易量, `>0`(具体根据 GetActiveContracts 获取不同交易对配置) |
-| old_quantity |   YES    | number |                          当前订单剩余量                          |
+|  Parameter   | Required |  Type  |                                           Explanation                                           |
+| :----------: | :------: | :----: | :---------------------------------------------------------------------------------------------: |
+|    symbol    |   YES    | string |                                  trading pair (e.g. 'BTC_USD')                                  |
+|   order_id   |   YES    | string |                                         order ID: `OID`                                         |
+|  stop_price  |    NO    | number |        stop-loss price: `>0`, The required change to YES when order_type is `STOP` order        |
+|    price     |   YES    | number |                                           price: `>0`                                           |
+|   quantity   |   YES    | number | trading volume: `>0` (get different trading pair configuration according to GetActiveContracts) |
+| old_quantity |   YES    | number |                                        unfilled quantity                                        |
 
 #### Response
 
@@ -313,16 +313,16 @@ common 为每种请求均必须附带的字段
 
 ### CancelAllOrders
 
-批量取消订单
+Cancel all pending orders
 
 #### params
 
-| Parameter  | Required |            Type            |               Explanation               |
-| :--------: | :------: | :------------------------: | :-------------------------------------: |
-|   symbol   |   YES    |           string           |          交易对, eg: 'BTC_USD'          |
-|    side    |   YES    | enum('SELL', 'BUY', 'ALL') |                买或者卖                 |
-| high_price |    NO    |           number           | 取消价格范围, 最高价格, 默认值 `100000` |
-| low_price  |    NO    |           number           |   取消价格范围, 最低价格, 默认值 `0`    |
+| Parameter  | Required |            Type             |                      Explanation                       |
+| :--------: | :------: | :-------------------------: | :----------------------------------------------------: |
+|   symbol   |   YES    |           string            |             trading pair (e.g. 'BTC_USD')              |
+|    side    |   YES    | enum ('SELL', 'BUY', 'ALL') |                      buy or sell                       |
+| high_price |    NO    |           number            | cancel price range: high price, default value `100000` |
+| low_price  |    NO    |           number            |    cancel price range: low price, default value `0`    |
 
 #### Response
 
@@ -330,22 +330,22 @@ common 为每种请求均必须附带的字段
 
 ### RetrieveOrder (deprecated)
 
-查询订单 (deprecated)
+retrieve order (deprecated)
 
 #### params
 
-| Parameter | Required |  Type  |      Explanation      |
-| :-------: | :------: | :----: | :-------------------: |
-| order_id  |   YES    | string |     订单号, `OID`     |
-|  symbol   |   YES    | string | 交易对, eg: 'BTC_USD' |
+| Parameter | Required |  Type  |          Explanation          |
+| :-------: | :------: | :----: | :---------------------------: |
+| order_id  |   YES    | string |        order ID: `OID`        |
+|  symbol   |   YES    | string | trading pair (e.g. 'BTC_USD') |
 
 ### GetAccountInfo
 
-获取账户余额详情
+Get account assets’ details
 
 #### params
 
-仅需要 `common` 字段
+use `common` field
 
 #### Response
 

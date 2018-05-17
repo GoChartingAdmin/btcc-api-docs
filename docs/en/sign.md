@@ -1,8 +1,8 @@
-## 签名
+## SIGNATURE
 
-签名使用 `hmac sha256`, 将请求需要的字段 _从小到大排序_ 然后 `querystring stringify` 再用 `token` 作为 `secret` 生成 `hex` 格式签名.
+Use `hmac sha256` on the signature. The request fields _sorted from small to large_, and then use `querystring stringify`. Generate `hex` signature by using `token` as `secret`.
 
-示例代码:
+For example:
 
 ```js
 import createHmac from 'create-hmac'
@@ -31,4 +31,4 @@ const sign = (payload, secret) => {
 }
 ```
 
-可以参考[example/index.js](../example/index.js)
+[example/index.js](../example/index.js) as reference

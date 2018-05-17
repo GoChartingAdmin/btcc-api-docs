@@ -1,6 +1,6 @@
-# Engine Response Api
+# Engine Response API
 
-_注意:_ 所有响应 `RC` 类型已更新为 `Number`
+_注意:_ 所有响应 `RC` 类型为 `Number`
 
 The WebSocket API in this trading engine will replace the original sisyphus project.
 
@@ -273,7 +273,7 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 
 #### 0.1 Exchange-Engine Result Codes
 
-_注意:_ 所有响应 `RC` 类型已更新为 `Number`
+_注意:_ 所有响应 `RC` 类型为 `Number`
 
 | Constant                           | Value | Description                                            |
 | ---------------------------------- | ----- | ------------------------------------------------------ |
