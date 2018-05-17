@@ -17,6 +17,7 @@
   "author": "zcong1993 <1005997919@qq.com>",
   "license": "MIT",
   "devDependencies": {
+    "netlify-cli": "^1.2.2",
     "vuepress": "^0.8.4"
   },
   "dependencies": {
