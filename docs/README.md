@@ -221,7 +221,6 @@ common 为每种请求均必须附带的字段
 |   symbol   |    YES     |          string          |                     交易对 (例：'BTC_USD'）                      |
 |    side    |    YES     |   enum ('SELL', 'BUY')   |                             买或者卖                             |
 | order_type |    YES     | enum ('LIMIT', 'MARKET') |                     订单类型: 市价单、限价单                     |
-|    <!--    | stop_price |            NO            |                              number                              | 止损价格： `>0`, order_type 为 `STOP` 时，required 变为 YES | --> |
 |   price    |    YES     |          number          |                            价格: `>0`                            |
 |  quantity  |    YES     |          number          | 订单交易量: `>0`(具体根据 GetActiveContracts 获取不同交易对配置) |
 

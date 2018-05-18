@@ -221,7 +221,6 @@ place orders
 |   symbol   |    YES     |          string          |                                 trading pair (e.g. 'BTC_USD')                                  |
 |    side    |    YES     |   enum ('SELL', 'BUY')   |                                          buy or sell                                           |
 | order_type |    YES     | enum ('LIMIT', 'MARKET') |                             order type: market order, limit order                              |
-|    <!--    | stop_price |            NO            |                                             number                                             | stop-loss price: `>0`, The required change to YES when order_type is `STOP` order | --> |
 |   price    |    YES     |          number          |                                          price: `>0`                                           |
 |  quantity  |    YES     |          number          | trading volume:`>0` (get different trading pair configuration according to GetActiveContracts) |
 
