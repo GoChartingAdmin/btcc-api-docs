@@ -301,7 +301,6 @@ Update the information of pending orders
 | :----------: | :------: | :----: | :---------------------------------------------------------------------------------------------: |
 |    symbol    |   YES    | string |                                  trading pair (e.g. 'BTC_USD')                                  |
 |   order_id   |   YES    | string |                                         order ID: `OID`                                         |
-|  stop_price  |    NO    | number |        stop-loss price: `>0`, The required change to YES when order_type is `STOP` order        |
 |    price     |   YES    | number |                                           price: `>0`                                           |
 |   quantity   |   YES    | number | trading volume: `>0` (get different trading pair configuration according to GetActiveContracts) |
 | old_quantity |   YES    | number |                                        unfilled quantity                                        |
