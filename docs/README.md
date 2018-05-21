@@ -216,13 +216,14 @@ common 为每种请求均必须附带的字段
 
 #### params
 
-| Parameter  | Required |           Type           |                           Explanation                            |
-| :--------: | :------: | :----------------------: | :--------------------------------------------------------------: |
-|   symbol   |   YES    |          string          |                     交易对 (例：'BTC_USD'）                      |
-|    side    |   YES    |   enum ('SELL', 'BUY')   |                             买或者卖                             |
-| order_type |   YES    | enum ('LIMIT', 'MARKET') |                     订单类型: 市价单、限价单                     |
-|   price    |   YES    |          number          |                            价格: `>0`                            |
-|  quantity  |   YES    |          number          | 订单交易量: `>0`(具体根据 GetActiveContracts 获取不同交易对配置) |
+| Parameter  | Required |               Type               |                           Explanation                            |
+| :--------: | :------: | :------------------------------: | :--------------------------------------------------------------: |
+|   symbol   |   YES    |              string              |                     交易对 (例：'BTC_USD'）                      |
+|    side    |   YES    |       enum ('SELL', 'BUY')       |                             买或者卖                             |
+| order_type |   YES    | enum ('LIMIT', 'MARKET', 'STOP') |                 订单类型: 市价单、限价单或止损单                 |
+| stop_price |    NO    |              number              |   止损价格： `>0`, order_type 为 `STOP` 时，required 变为 YES    |
+|   price    |   YES    |              number              |                            价格: `>0`                            |
+|  quantity  |   YES    |              number              | 订单交易量: `>0`(具体根据 GetActiveContracts 获取不同交易对配置) |
 
 #### Response
 
@@ -302,6 +303,7 @@ common 为每种请求均必须附带的字段
 |    symbol    |   YES    | string |                      交易对 (例：'BTC_USD'）                      |
 |   order_id   |   YES    | string |                          订单号： `OID`                           |
 |    price     |   YES    | number |                            价格： `>0`                            |
+|  stop_price  |    NO    | number |    止损价格： `>0`, order_type 为 `STOP` 时，required 变为 YES    |
 |   quantity   |   YES    | number | 订单交易量： `>0`(具体根据 GetActiveContracts 获取不同交易对配置) |
 | old_quantity |   YES    | number |                       下单后，未成交的订单                        |
 

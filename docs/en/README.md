@@ -216,13 +216,14 @@ place orders
 
 #### params
 
-| Parameter  | Required |           Type           |                                          Explanation                                           |
-| :--------: | :------: | :----------------------: | :--------------------------------------------------------------------------------------------: |
-|   symbol   |   YES    |          string          |                                 trading pair (e.g. 'BTC_USD')                                  |
-|    side    |   YES    |   enum ('SELL', 'BUY')   |                                          buy or sell                                           |
-| order_type |   YES    | enum ('LIMIT', 'MARKET') |                             order type: market order, limit order                              |
-|   price    |   YES    |          number          |                                          price: `>0`                                           |
-|  quantity  |   YES    |          number          | trading volume:`>0` (get different trading pair configuration according to GetActiveContracts) |
+| Parameter  | Required |               Type               |                                          Explanation                                           |
+| :--------: | :------: | :------------------------------: | :--------------------------------------------------------------------------------------------: |
+|   symbol   |   YES    |              string              |                                 trading pair (e.g. 'BTC_USD')                                  |
+|    side    |   YES    |       enum ('SELL', 'BUY')       |                                          buy or sell                                           |
+| order_type |   YES    | enum ('LIMIT', 'MARKET', 'STOP') |                    order type: market order, limit order or stop-loss order                    |
+| stop_price |    NO    |              number              |       stop-loss price: `>0`, The required change to YES when order_type is `STOP` order        |
+|   price    |   YES    |              number              |                                          price: `>0`                                           |
+|  quantity  |   YES    |              number              | trading volume:`>0` (get different trading pair configuration according to GetActiveContracts) |
 
 #### Response
 
@@ -302,6 +303,7 @@ Update the information of pending orders
 |    symbol    |   YES    | string |                                  trading pair (e.g. 'BTC_USD')                                  |
 |   order_id   |   YES    | string |                                         order ID: `OID`                                         |
 |    price     |   YES    | number |                                           price: `>0`                                           |
+|  stop_price  |    NO    | number |        stop-loss price: `>0`, The required change to YES when order_type is `STOP` order        |
 |   quantity   |   YES    | number | trading volume: `>0` (get different trading pair configuration according to GetActiveContracts) |
 | old_quantity |   YES    | number |                                        unfilled quantity                                        |
 
