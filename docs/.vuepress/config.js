@@ -117,7 +117,7 @@ module.exports = {
         selectText: 'Languages',
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last Updated',
-        sidebar: ['/en/', '/en/sign', '/en/engine'],
+        sidebar: ['/en/', '/en/sign', '/en/engine', '/en/balance'],
         nav: [
           {
             text: 'Examples',
@@ -141,30 +141,6 @@ module.exports = {
           }
         ]
       }
-    },
-    lastUpdated: 'Last Updated',
-    sidebar: ['/', '/sign', '/engine'],
-    nav: [
-      {
-        text: 'Examples',
-        items: [
-          {
-            text: 'Javascript',
-            link:
-              'https://github.com/zcong1993/btcc-api-docs/tree/master/examples/js'
-          },
-          {
-            text: 'NodeJS',
-            link:
-              'https://github.com/zcong1993/btcc-api-docs/tree/master/examples/nodejs'
-          },
-          {
-            text: 'Python3',
-            link:
-              'https://github.com/zcong1993/btcc-api-docs/tree/master/examples/python3'
-          }
-        ]
-      }
-    ]
+    }
   }
 }

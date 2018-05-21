@@ -216,13 +216,13 @@ common 为每种请求均必须附带的字段
 
 #### params
 
-| Parameter  |  Required  |           Type           |                           Explanation                            |
-| :--------: | :--------: | :----------------------: | :--------------------------------------------------------------: |
-|   symbol   |    YES     |          string          |                     交易对 (例：'BTC_USD'）                      |
-|    side    |    YES     |   enum ('SELL', 'BUY')   |                             买或者卖                             |
-| order_type |    YES     | enum ('LIMIT', 'MARKET') |                     订单类型: 市价单、限价单                     |
-|   price    |    YES     |          number          |                            价格: `>0`                            |
-|  quantity  |    YES     |          number          | 订单交易量: `>0`(具体根据 GetActiveContracts 获取不同交易对配置) |
+| Parameter  | Required |           Type           |                           Explanation                            |
+| :--------: | :------: | :----------------------: | :--------------------------------------------------------------: |
+|   symbol   |   YES    |          string          |                     交易对 (例：'BTC_USD'）                      |
+|    side    |   YES    |   enum ('SELL', 'BUY')   |                             买或者卖                             |
+| order_type |   YES    | enum ('LIMIT', 'MARKET') |                     订单类型: 市价单、限价单                     |
+|   price    |   YES    |          number          |                            价格: `>0`                            |
+|  quantity  |   YES    |          number          | 订单交易量: `>0`(具体根据 GetActiveContracts 获取不同交易对配置) |
 
 #### Response
 
