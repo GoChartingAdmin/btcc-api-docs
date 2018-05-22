@@ -65,6 +65,8 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
     * [1.1 OrdStatus](#11-ordstatus)
     * [1.2 OrdRejReason](#12-ordrejreason)
     * [1.3 CxlRejReason](#13-cxlrejreason)
+    * [1.4 Order Side](#14-order-side)
+    * [1.5 Order Type](#15-order-type)
 
   * [Appendix 2: Components](#appendix-2-components)
 
@@ -146,8 +148,8 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 | Side                 |                                                    |
 | OrderType            |                                                    |
 | LastQty              |                                                    |
-| CumQty               |                                                    |
-| LeaveQty             |                                                    |
+| CumQty               | Quantity that has been already executed            |
+| LeaveQty             | Quantity that pending to be executed               |
 | Price                |                                                    |
 | StopPrice            |                                                    |
 | Status               |                                                    |
@@ -155,7 +157,7 @@ The WebSocket API in this trading engine will replace the original sisyphus proj
 | TimeInForce          |                                                    |
 | ExprDate             | expiration date if TimeInForce is 'good till date' |
 | ExprTime             | expiration time if TimeInForce is 'good till date' |
-| SettlementQty        |                                                    |
+| SettlementQty        | Quantity has been executed at current execution    |
 | AveragePrice         |                                                    |
 | ExecutionDetails     | see Appendix 2.8                                   |
 | Created              | Created timestamp                                  |
@@ -400,6 +402,21 @@ _Notice:_ All of the response `RC` type is `Number`.
 | LinkedOrderIsNotSupported    | 111  |        |
 | IncorrectOldQuantity         | 120  |        |
 | Empty                        | -1   |        |
+
+#### 1.4 Order Side
+
+| Value | Code |
+| ----- | ---- |
+| BUY   | '1'  |
+| SELL  | '2'  |
+
+#### 1.5 Order Type
+
+| Value  | Code |
+| ------ | ---- |
+| MARKET | '1'  |
+| LIMIT  | '2'  |
+| STOP   | '3'  |
 
 ### Appendix 2: Components
 
