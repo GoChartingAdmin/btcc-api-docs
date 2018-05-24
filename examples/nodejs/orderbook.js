@@ -35,6 +35,8 @@ class Orderbook {
     }
     if (data.MsgType === 'OrderBook') {
       if (data.Type === 'F') {
+        // clear cache for refetch
+        this._orderbook.clear()
         // full orderbook
         // set version
         this._version = data.Version
