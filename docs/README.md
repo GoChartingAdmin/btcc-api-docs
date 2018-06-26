@@ -4,6 +4,8 @@
 
 * [Examples](#examples)
 
+* [Heartbeat](#heartbeat)
+
 * [Common](#common)
 
 * [PUBLIC 消息](#public-消息)
@@ -37,6 +39,32 @@
 * [Javascript](https://github.com/zcong1993/btcc-api-docs/tree/master/examples/js)
 * [NodeJS](https://github.com/zcong1993/btcc-api-docs/tree/master/examples/nodejs)
 * [Python3](https://github.com/zcong1993/btcc-api-docs/tree/master/examples/python3)
+
+## Heartbeat
+
+#### 被动心跳
+
+每隔 4s 左右会收到服务端心跳包 `{"MsgType":"Heartbeat"}`, 订阅 public 消息之后可能会更加频繁.
+
+#### 主动心跳
+
+客户端可以主动向服务端发送主动心跳, 格式如下:
+
+```json
+{
+  "action": "PositiveHeartbeat",
+  "data": "any data, 可选参数"
+}
+```
+
+你将收到以下消息:
+
+```json
+{ 
+  "MsgType": "PositiveHeartbeat",
+  "data": "any data, 可选参数"
+}
+```
 
 ## Common
 
