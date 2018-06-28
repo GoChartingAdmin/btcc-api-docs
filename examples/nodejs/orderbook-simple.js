@@ -1,7 +1,7 @@
 const Websocket = require('ws')
 const { v4 } = require('uuid')
 
-const ws = new Websocket('wss://ws.freesnow.com')
+const ws = new Websocket('wss://ws.btcc.com')
 
 const SYMBOL = 'BTC_USD'
 

@@ -61,4 +61,4 @@ async def get_account_info(uri):
 
 
 asyncio.get_event_loop().run_until_complete(
-    get_account_info('wss://ws.freesnow.com'))
+    get_account_info('wss://ws.btcc.com'))

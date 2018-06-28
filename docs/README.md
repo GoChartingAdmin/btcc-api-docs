@@ -60,7 +60,7 @@
 你将收到以下消息:
 
 ```json
-{ 
+{
   "MsgType": "PositiveHeartbeat",
   "data": "any data, 可选参数"
 }

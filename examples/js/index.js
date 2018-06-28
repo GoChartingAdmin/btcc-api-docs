@@ -121,7 +121,7 @@ cancelAllOrders.sign = sign(cancelAllOrders, token)
 
 const isLocal = false
 
-const wsUrl = isLocal ? 'ws://localhost:9393' : 'wss://ws.freesnow.com'
+const wsUrl = isLocal ? 'ws://localhost:9393' : 'wss://ws.btcc.com'
 
 console.log(wsUrl)
 

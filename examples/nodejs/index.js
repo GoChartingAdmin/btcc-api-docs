@@ -39,7 +39,7 @@ const getAccountInfo = {
 }
 getAccountInfo.sign = sign(getAccountInfo, token)
 
-const ws = new Websocket('wss://ws.freesnow.com')
+const ws = new Websocket('wss://ws.btcc.com')
 
 ws.on('open', () => {
   console.log('ws open')

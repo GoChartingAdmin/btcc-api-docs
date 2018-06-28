@@ -2,7 +2,7 @@ const WebSocket = require('ws')
 const Big = require('big.js')
 
 class Orderbook {
-  constructor({ wsUrl = 'wss://ws.freesnow.com', symbol = 'BTC_USD' } = {}) {
+  constructor({ wsUrl = 'wss://ws.btcc.com', symbol = 'BTC_USD' } = {}) {
     this.ws = new WebSocket(wsUrl)
     this.symbol = symbol
 
