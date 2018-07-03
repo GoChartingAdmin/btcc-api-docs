@@ -25,6 +25,6 @@ jobs:
       - run:
           name: build
           command: yarn build
-      - run:
-          name: deploy
-          command: ./node_modules/.bin/netlify deploy -t $NETLIFY_TOKEN
+      # - run:
+      #     name: deploy
+      #     command: ./node_modules/.bin/netlify deploy -t $NETLIFY_TOKEN

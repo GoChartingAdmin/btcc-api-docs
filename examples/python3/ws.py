@@ -9,8 +9,8 @@ import random
 import websockets
 import simplejson as json
 
-USER_ID = "your user id here"
-TOKEN = "your token here"
+PUBLIC_KEY = "your public key here"
+SECRET_KEY = "your secret key here"
 
 
 def sort_obj(payload):
@@ -47,12 +47,12 @@ async def get_account_info(uri):
     async with websockets.connect(uri) as websocket:
         payload = {
             "action": "GetAccountInfo",
-            "user_id": USER_ID,
+            "public_key": PUBLIC_KEY,
             "crid": gen_uuid(),
             "timestamp": gen_timestamp_13bit(),
             "nonce": gen_nonce(),
         }
-        signed_payload = sign_payload(payload, TOKEN)
+        signed_payload = sign_payload(payload, SECRET_KEY)
 
         await websocket.send(json.dumps(signed_payload))
 

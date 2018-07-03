@@ -184,14 +184,14 @@ common 为每种请求均必须附带的字段
 
 #### params
 
-| Parameter | Required |       Type       |                                    Explanation                                    |
-| :-------: | :------: | :--------------: | :-------------------------------------------------------------------------------: |
-| timestamp |   YES    |  timestamp (13)  |                   13 位时间戳, 服务端不会请求过期`2s`以上的请求                   |
-|   nonce   |   YES    | string 或 number |                                   8 位随机数字                                    |
-|  user_id  |   YES    |      string      |                                用户 ID (非用户名)                                 |
-|   sign    |   YES    |      string      |                         签名（详见[sign.md](./sign.md)）                          |
-|  action   |   YES    |      string      |                           消息类型（ 支持的类型见下方）                           |
-|   crid    |   YES    |      string      | 若主动附带此字段, 则返回值中 `CRID` 会与此保持一致, 若忽略该字段, 则为随机 `uuid` |
+| Parameter  | Required |       Type       |                                    Explanation                                    |
+| :--------: | :------: | :--------------: | :-------------------------------------------------------------------------------: |
+| timestamp  |   YES    |  timestamp (13)  |                   13 位时间戳, 服务端不会请求过期`2s`以上的请求                   |
+|   nonce    |   YES    | string 或 number |                                   8 位随机数字                                    |
+| public_key |   YES    |      string      |                    用户 public key (非用户名, 在个人中心申请)                     |
+|    sign    |   YES    |      string      |                         签名（详见[sign.md](./sign.md)）                          |
+|   action   |   YES    |      string      |                           消息类型（ 支持的类型见下方）                           |
+|    crid    |   YES    |      string      | 若主动附带此字段, 则返回值中 `CRID` 会与此保持一致, 若忽略该字段, 则为随机 `uuid` |
 
 ```js
   action: {

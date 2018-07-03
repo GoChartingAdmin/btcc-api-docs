@@ -2,8 +2,8 @@
 import createHmac from 'create-hmac'
 import { stringify } from 'qs'
 
-const userId = 'add your id here'
-const token = 'add your token here'
+const publicKey = 'add your public key here'
+const secretKey = 'add your secret key here'
 
 // object sort
 const sortObj = obj => {
@@ -31,7 +31,7 @@ const symbol = 'BTC_USD'
 
 const origin = {
   action: 'PlaceOrder',
-  user_id: userId,
+  public_key: publicKey,
   symbol,
   side: 'SELL',
   order_type: 'LIMIT',
@@ -43,7 +43,7 @@ const origin = {
     .slice(2, 10)
 }
 
-origin.sign = sign(origin, token)
+origin.sign = sign(origin, secretKey)
 
 const subscribeChannal = (symbol = 'BTCUSD', action = 'Subscribe') => {
   return {
@@ -54,38 +54,38 @@ const subscribeChannal = (symbol = 'BTCUSD', action = 'Subscribe') => {
 
 const priWsSubscribe = {
   action: 'Login',
-  user_id: userId,
+  public_key: publicKey,
   timestamp: Date.now(),
   nonce: Math.random()
     .toString()
     .slice(2, 10)
 }
-priWsSubscribe.sign = sign(priWsSubscribe, token)
+priWsSubscribe.sign = sign(priWsSubscribe, secretKey)
 
 const priWsUnSubscribe = {
   action: 'Logout',
-  user_id: userId,
+  public_key: publicKey,
   timestamp: Date.now(),
   nonce: Math.random()
     .toString()
     .slice(2, 10)
 }
-priWsUnSubscribe.sign = sign(priWsUnSubscribe, token)
+priWsUnSubscribe.sign = sign(priWsUnSubscribe, secretKey)
 
 const getOpenOrders = {
   action: 'GetOpenOrders',
-  user_id: userId,
+  public_key: publicKey,
   symbol,
   timestamp: Date.now(),
   nonce: Math.random()
     .toString()
     .slice(2, 10)
 }
-getOpenOrders.sign = sign(getOpenOrders, token)
+getOpenOrders.sign = sign(getOpenOrders, secretKey)
 
 const cancelOrder = {
   action: 'CancelOrder',
-  user_id: userId,
+  public_key: publicKey,
   order_id: '3c30282fef1b49849435e27f3a083299',
   symbol,
   timestamp: Date.now(),
@@ -93,11 +93,11 @@ const cancelOrder = {
     .toString()
     .slice(2, 10)
 }
-cancelOrder.sign = sign(cancelOrder, token)
+cancelOrder.sign = sign(cancelOrder, secretKey)
 
 const retrieveOrder = {
   action: 'RetrieveOrder',
-  user_id: userId,
+  public_key: publicKey,
   order_id: '3e1bdd7d35294ba7afc10ed9b1d4b598',
   symbol,
   timestamp: Date.now(),
@@ -105,11 +105,11 @@ const retrieveOrder = {
     .toString()
     .slice(2, 10)
 }
-retrieveOrder.sign = sign(retrieveOrder, token)
+retrieveOrder.sign = sign(retrieveOrder, secretKey)
 
 const cancelAllOrders = {
   action: 'CancelAllOrders',
-  user_id: userId,
+  public_key: publicKey,
   symbol,
   side: 'ALL',
   timestamp: Date.now(),
@@ -117,7 +117,7 @@ const cancelAllOrders = {
     .toString()
     .slice(2, 10)
 }
-cancelAllOrders.sign = sign(cancelAllOrders, token)
+cancelAllOrders.sign = sign(cancelAllOrders, secretKey)
 
 const isLocal = false
 

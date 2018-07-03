@@ -3,8 +3,8 @@ const { stringify } = require('qs')
 const { v4 } = require('uuid')
 const Websocket = require('ws')
 
-const userId = 'your user id here'
-const token = 'your token here'
+const publicKey = 'your public key here'
+const secretKey = 'your token here'
 
 // object sort
 const sortObj = obj => {
@@ -31,13 +31,13 @@ const sign = (payload, secret) => {
 const getAccountInfo = {
   crid: v4(),
   action: 'GetAccountInfo',
-  user_id: userId,
+  public_key: publicKey,
   timestamp: Date.now(),
   nonce: Math.random()
     .toString()
     .slice(2, 10)
 }
-getAccountInfo.sign = sign(getAccountInfo, token)
+getAccountInfo.sign = sign(getAccountInfo, secretKey)
 
 const ws = new Websocket('wss://ws.btcc.com')
 

@@ -156,14 +156,14 @@ Add common field for all kind of requests
 
 #### params
 
-| Parameter | Required |       Type       |                                                       Explanation                                                       |
-| :-------: | :------: | :--------------: | :---------------------------------------------------------------------------------------------------------------------: |
-| timestamp |   YES    |  timestamp (13)  |                        13-digit timestamp (Server will not request an expired request over `2s`)                        |
-|   nonce   |   YES    | string or number |                                                  8-digit random number                                                  |
-|  user_id  |   YES    |      string      |                                                 user ID (non-username)                                                  |
-|   sign    |   YES    |      string      |                     signature （please see the [sign.md](./sign.md) for the detailed information）                      |
-|  action   |   YES    |      string      |                                          message type（support type as below）                                          |
-|   crid    |   YES    |      string      | If you add `crid` field, it will be returned in `CRID` value. If you do not add this field, then it is a random `uuid`. |
+| Parameter  | Required |       Type       |                                                       Explanation                                                       |
+| :--------: | :------: | :--------------: | :---------------------------------------------------------------------------------------------------------------------: |
+| timestamp  |   YES    |  timestamp (13)  |                        13-digit timestamp (Server will not request an expired request over `2s`)                        |
+|   nonce    |   YES    | string or number |                                                  8-digit random number                                                  |
+| public_key |   YES    |      string      |                             user public key (not username, get it from user control center)                             |
+|    sign    |   YES    |      string      |                     signature （please see the [sign.md](./sign.md) for the detailed information）                      |
+|   action   |   YES    |      string      |                                          message type（support type as below）                                          |
+|    crid    |   YES    |      string      | If you add `crid` field, it will be returned in `CRID` value. If you do not add this field, then it is a random `uuid`. |
 
 ```js
   action: {
