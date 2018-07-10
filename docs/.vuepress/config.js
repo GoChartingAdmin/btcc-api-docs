@@ -88,7 +88,7 @@ module.exports = {
         selectText: '选择语言',
         editLinkText: '在 GitHub 上编辑此页',
         lastUpdated: '上次更新',
-        sidebar: ['/', '/sign', '/engine', '/balance', '/orderbook'],
+        sidebar: ['/', '/rest', '/sign', '/engine', '/balance', '/orderbook'],
         nav: [
           {
             text: '代码示例',
@@ -117,7 +117,7 @@ module.exports = {
         selectText: 'Languages',
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last Updated',
-        sidebar: ['/en/', '/en/sign', '/en/engine', '/en/balance'],
+        sidebar: ['/en/', '/en/rest', '/en/sign', '/en/engine', '/en/balance'],
         nav: [
           {
             text: 'Examples',

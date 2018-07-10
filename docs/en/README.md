@@ -1,4 +1,4 @@
-# API
+# WS-API
 
 ## Table of Contents
 
