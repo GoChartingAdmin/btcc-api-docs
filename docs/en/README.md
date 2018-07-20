@@ -14,6 +14,8 @@
   * [UnSubscribeAllTickers](#unsubscribealltickers)
   * [Subscribe](#subscribe)
   * [UnSubscribe](#unsubscribe)
+  * [SubOrderBook](#suborderbook)
+  * [UnSubOrderBook](#unsuborderbook)
 
 * [PRIVATE MESSAGE](#private-message)
 
@@ -145,6 +147,43 @@ Unsubscribe a specific trading pair’s `ticker` and `orderbook`
 {
   "action": " UnSubscribe",
   "symbol": "BTC_USD"
+}
+```
+### SubOrderBook
+
+Subscribe a specific trading pair's `orderbook`
+
+#### params
+
+| Parameter | Required |  Type  |      Explanation      |
+| :-------: | :------: | :----: | :-------------------: |
+|  symbol   |   YES    | string | trading pair (eg: 'BTC_USD') |
+|    len    |   YES    | string | orderbook length( eg:10、25、100)  |
+
+```json
+{
+  "action": "SubOrderBook",
+  "symbol": "BTC_USD",
+  "len:: 100
+}
+```
+
+### UnSubOrderBook
+
+Subscribe a specific trading pair's `orderbook`,
+
+#### params
+
+| Parameter | Required |  Type  |      Explanation      |
+| :-------: | :------: | :----: | :-------------------: |
+|  symbol   |   YES    | string | trading pair (eg: 'BTC_USD') |
+|    len    |   YES    | string | orderbook length( eg:10、25、100)  |
+
+```json
+{
+  "action": "UnSubOrderBook",
+  "symbol": "BTC_USD",
+  "len:: 100
 }
 ```
 

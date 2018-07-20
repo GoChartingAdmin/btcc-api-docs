@@ -16,6 +16,8 @@
   * [UnSubscribeAllTickers](#unsubscribealltickers)
   * [Subscribe](#subscribe)
   * [UnSubscribe](#unsubscribe)
+  * [SubOrderBook](#suborderbook)
+  * [UnSubOrderBook](#unsuborderbook)
 
 * [PRIVATE 消息](#private-消息)
 
@@ -175,6 +177,45 @@
   "symbol": "BTC_USD"
 }
 ```
+
+### SubOrderBook
+
+订阅特定频道 档位的 `orderbook`, 不同档位推送时间间隔不同
+
+#### params
+
+| Parameter | Required |  Type  |      Explanation      |
+| :-------: | :------: | :----: | :-------------------: |
+|  symbol   |   YES    | string | 交易对, eg: 'BTC_USD' |
+|    len    |   YES    | string | 档位, eg:10、25、100  |
+
+```json
+{
+  "action": "SubOrderBook",
+  "symbol": "BTC_USD",
+  "len:: 100
+}
+```
+
+### UnSubOrderBook
+
+取消订阅特定频道 档位的 `orderbook`,
+
+#### params
+
+| Parameter | Required |  Type  |      Explanation      |
+| :-------: | :------: | :----: | :-------------------: |
+|  symbol   |   YES    | string | 交易对, eg: 'BTC_USD' |
+|    len    |   YES    | string | 档位, eg:10、25、100  |
+
+```json
+{
+  "action": "UnSubOrderBook",
+  "symbol": "BTC_USD",
+  "len:: 100
+}
+```
+
 
 ## PRIVATE 消息
 
